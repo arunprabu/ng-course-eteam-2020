@@ -1,0 +1,70 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<html lang="en">
+
+<head>
+  <!-- data about data  -->
+  <meta charset="UTF-8"> <!-- character set-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official Wipro Website">
+  <title>Wipro - Contact</title>
+</head>
+
+<body>
+
+  <header>
+    <img src="./assets/images/Wipro-Logo.png" alt="Wipro Logo">
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home </a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Us</h1>
+
+    <form method="GET" action="formSubmit.php">
+      <div>
+        <label for='fullNameInput'>Name: </label>
+        <input type="text" name="fullName" id="fullNameInput" 
+        placeholder="Enter Name" required>
+      </div>
+
+      <div>
+        <label for="emailInput">E-Mail: </label>
+        <input type="email" name="email" id="emailInput" 
+        placeholder="Enter Email" required>
+      </div>
+
+      <div>
+        <label for="phoneInput">Phone: </label>
+        <input type="number" name="phone" id="phoneInput" placeholder="Enter Phone"
+        required>
+      </div>
+
+      <div>
+        <label for="queryInput">Query</label>
+        <textarea id="queryInput" name="query" cols="20" rows="3" 
+        placeholder="Enter Query" required></textarea>
+      </div>
+
+      <div>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+
+  </main>
+
+  <footer>
+    <hr>
+    <p>Copyright 2020 | Arun </p>
+  </footer>
+
+</body>
+
+</html>
