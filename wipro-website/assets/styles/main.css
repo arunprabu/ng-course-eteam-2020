@@ -1,7 +1,13 @@
 /* global styles */
 
+/* embedding fonts */
+@font-face {
+  font-family: "Big Shoulders Stencil Text";
+  src: url("../fonts/BigShouldersStencilText-ExtraBold.ttf") format("truetype");
+}
+
 body{
-  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Big Shoulders Stencil Text', cursive;
 }
 
 /* element selector */
@@ -53,6 +59,39 @@ body{
   border-radius: 9px;  /* css3 */
 }
 
+.info-wrapper1{
+  box-shadow:inset 10px 10px 90px 20px #0008FF;
+}
+.info-wrapper2{
+  box-shadow:inset 10px 10px 90px 20px #FFCC00;
+}
+
+.shadow{
+  text-shadow: 6px 5px 12px #FF1212;
+}
+
+.company-intro{
+  column-count: 4;
+  column-gap: 20px;
+}
+
+/* Responsive CSS with media queries */
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: rgba(238, 238, 238, 1);
+  }
+
+  .company-intro{
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
 
 /* util styles */
 .clear{
@@ -63,3 +102,4 @@ body{
   /* style definition */
   text-align: center;
 }
+
