@@ -1,0 +1,65 @@
+/* global styles */
+
+body{
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* element selector */
+.primary-nav{
+  float: right;
+}
+
+.primary-nav ul li{
+  display: inline;
+  padding-right: 10px;
+}
+
+.left-box, .right-box{
+  width: calc(50% - 2px);  /* css3 */
+  border:solid 1px red;
+  float: left;
+}
+.contact-form{
+  float: left;
+  width: 50%;
+}
+
+.contact-form label{
+  width: 70px;
+  float: left;
+  margin: 10px;
+  padding: 16px 10px;
+}
+
+.contact-form input, .contact-form textarea{
+  width: 360px;
+  margin: 10px;
+  padding: 16px 10px;
+  font-size: 20px;
+  border: solid 1px rgb(111, 111, 111);
+  border-radius: 6px;   /* css3 */
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form .button-bar{
+  margin-left: 37%;
+}
+
+.contact-form button{
+  font-size: 22px;
+  padding: 10px 26px;
+  background-color: #CFD8DC;
+  border: solid 1px grey;
+  border-radius: 9px;  /* css3 */
+}
+
+
+/* util styles */
+.clear{
+  clear: both;
+}
+
+.text-center {
+  /* style definition */
+  text-align: center;
+}
