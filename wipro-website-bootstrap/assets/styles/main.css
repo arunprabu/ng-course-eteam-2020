@@ -1,0 +1,8 @@
+.grid-demo .row>[class^=col]{
+  border: solid 1px grey;
+}
+
+.scrollspy-about{
+  height: 200px;
+  overflow: scroll;
+}
