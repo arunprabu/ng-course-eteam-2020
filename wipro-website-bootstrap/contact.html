@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-6 mb-3 form-group">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control " id="lastName" required value="Smith">
+              <input type="text" class="form-control" id="lastName" required value="Smith">
               <div class="invalid-feedback">Please fill out this field.</div>
               <div class="valid-feedback">
                 Looks good!
@@ -140,6 +140,14 @@
           <button type="button" class="btn btn-primary">Open in Modal</button>
 
           <!-- todo: should open bootstrap modal and inside it should show large google maps -->
+        </div>
+
+        <div>
+          <p>Click the button to get your coordinates.</p>
+
+          <button onclick="getLocation()">Try It</button>
+
+          <p id="demo"></p>
         </div>
       </div>
 
