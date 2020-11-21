@@ -1,0 +1,13 @@
+Building Blocks
+---
+  Components
+  Directives
+  Services
+  Interfaces
+  Classes
+  Models 
+  Guards
+  Pipes 
+  Modules
+
+---

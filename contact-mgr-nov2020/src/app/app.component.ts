@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 // Decorator
 // @Component unifies the HTML, SCSS, TS and exposes in a selector.
