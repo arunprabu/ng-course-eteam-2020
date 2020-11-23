@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { HomeComponent } from './home/home.component';
+import { ConceptsComponent } from './concepts/concepts.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AboutComponent } from './about/about.component';
 
 // Main Switching Box
 @NgModule({
@@ -13,7 +17,11 @@ import { MenuComponent } from './shared/menu/menu.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    HomeComponent,
+    ConceptsComponent,
+    ContactsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
