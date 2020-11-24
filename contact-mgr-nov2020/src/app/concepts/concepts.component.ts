@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { CebComponent } from './ceb/ceb.component';
 
 @Component({
   selector: 'app-concepts',
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
     `
   ]
 })
-export class ConceptsComponent implements OnInit {
+export class ConceptsComponent implements OnInit, AfterViewInit {
 
   // string interpolation related
   appName = 'Contact Manager App!';
@@ -26,14 +27,41 @@ export class ConceptsComponent implements OnInit {
     color: 'black'
   };
 
-  constructor() { }
+  // two way binding related
+  courseName = 'Angular';
+
+  dataReceivedFromChildComp;
+
+  // if static true -- the data would be available in ngOnInit lifecycle hook
+  @ViewChild(CebComponent, { static: true }) cebData: CebComponent;
+  // if static false -- the data would be available in ngAfterViewInit lifecycle hook
+  // @ViewChild(CebComponent, { static: false }) cebData: CebComponent;
+
+  constructor() {
+    console.log('Inside Constructor');
+  }
 
   ngOnInit(): void {
+    console.log('Inside ngOnInit');
+    console.log(this.cebData);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('Inside ngAfterViewInit');
+    console.log(this.cebData);
   }
 
   // event binding related
-  clickMeHandler(): void {
-    alert('clicked');
+  clickMeHandler(event): void {
+    console.log(event);
+    event.target.innerText = 'Clicked';
+    event.target.disabled = true;
   }
 
+  profileLoadedHandler(event): void {
+    // Step 5: Display it somewhere in parent comp
+    alert('inside parent comp');
+    console.log(event);
+    this.dataReceivedFromChildComp = event;
+  }
 }
