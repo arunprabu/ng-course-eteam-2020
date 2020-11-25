@@ -14,8 +14,8 @@ export class CebComponent implements OnInit {
 
   personName = 'Arun';
 
-  constructor() { 
-    console.log('Inside CebComponent constructor')
+  constructor() {
+    console.log('Inside CebComponent constructor');
   }
 
   ngOnInit(): void {

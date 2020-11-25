@@ -30,12 +30,20 @@ export class ConceptsComponent implements OnInit, AfterViewInit {
   // two way binding related
   courseName = 'Angular';
 
-  dataReceivedFromChildComp;
+  dataReceivedFromChildComp: string;
 
   // if static true -- the data would be available in ngOnInit lifecycle hook
   @ViewChild(CebComponent, { static: true }) cebData: CebComponent;
   // if static false -- the data would be available in ngAfterViewInit lifecycle hook
   // @ViewChild(CebComponent, { static: false }) cebData: CebComponent;
+
+  // *ngIf related
+  isLoggedIn: boolean;
+
+  // *ngFor related
+  skillList: string[] = [
+    'HTML', 'CSS', 'JS'
+  ];
 
   constructor() {
     console.log('Inside Constructor');
