@@ -18,6 +18,10 @@ export class ColorizerDirective {
 
     this.renderer.setStyle(el, 'background-color', 'yellow');
     this.renderer.setStyle(el, 'color', 'blue');
+
+    // todo: increase the height of this div by using setStyle
+    // todo: create a <p> element and have a text 'Success' inside.
+    //       append the <p> element into the div.
   }
 
 }
