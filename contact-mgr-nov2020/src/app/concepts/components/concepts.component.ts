@@ -60,7 +60,7 @@ export class ConceptsComponent implements OnInit, AfterViewInit {
   }
 
   // event binding related
-  clickMeHandler(event): void {
+  clickMeHandler(event: any): void {
     console.log(event);
     event.target.innerText = 'Clicked';
     event.target.disabled = true;

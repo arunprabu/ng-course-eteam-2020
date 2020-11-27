@@ -11,7 +11,9 @@ Directives
 
   ------
   3. Custom Attribute Directives
-
+        ng g d <name-of-the-directive> 
   4. Custom Structural Directives 
+        ng g d concepts/directives/demo-if
+
     
 
