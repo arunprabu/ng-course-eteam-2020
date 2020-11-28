@@ -22,9 +22,9 @@ export class AddContactComponent implements OnInit {
     // Step 1: continues...
     this.addContactForm = new FormGroup({
       // Step 2: Create HTML input equivalents in TS
-      name: new FormControl('arun', Validators.required), // Step 5: work on validations
-      phone: new FormControl('132344344', Validators.required),
-      email: new FormControl('a@b.com', [Validators.required, Validators.email])
+      name: new FormControl('', Validators.required), // Step 5: work on validations
+      phone: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email])
     });
   }
 
