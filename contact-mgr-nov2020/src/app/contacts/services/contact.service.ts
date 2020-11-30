@@ -29,6 +29,7 @@ export class ContactService {
 
   // Listing all contacts
   getContacts(): any { // 1. get the req from comp.ts
+    console.log('Inside service');
     // 2. send the req to the rest api
     // 2.1. what's the rest api url? - http://jsonplaceholder.typicode.com/users
     // 2.2. what's the http method? - GET
@@ -36,6 +37,7 @@ export class ContactService {
     return this.http.get(this.REST_API_URL)
       .pipe(map((res: any[]) => { // 3. get the resp from the rest api backend
         console.log(res);
+        // filter, convert, merge, sort,
         return res;     // 4. send it back to the comp ts
       }));
   }
@@ -50,6 +52,15 @@ export class ContactService {
   }
 
   // Update Contact
+  updateContact( contactData: any ): any {
+    const URL = this.REST_API_URL + '/' + contactData.id;
+    return this.http.put(URL, contactData)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+
+  }
 
   // Delete Contact
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -10,19 +11,39 @@ import { ContactService } from '../../services/contact.service';
 export class ContactDetailsComponent implements OnInit {
 
   contactData: any;
+  duplicateContactData: any;
+  isUpdated: boolean;
 
-  constructor(private contactService: ContactService) {
+  constructor(private contactService: ContactService, private route: ActivatedRoute) {
     console.log('Inside constructor');
   }
 
   ngOnInit(): void {
     console.log('Inside ngOnInit');
     // todo: Read URL Parameter in Angular
-    this.contactService.getContactById(4)
+    const contactId = this.route.snapshot.paramMap.get('id');
+    this.contactService.getContactById(contactId)
       .subscribe((res: any) => {
         console.log(res);
         this.contactData = res;
       });
   }
 
+  editModalOpenHandler(): void {
+    this.duplicateContactData = JSON.parse(JSON.stringify(this.contactData));
+  }
+
+  updateHandler(): void {
+    console.log(this.duplicateContactData);
+
+    this.contactService.updateContact(this.duplicateContactData)
+      .subscribe((res: any) => {
+        console.log(res);
+        if (res && res.id) {
+          this.isUpdated = true;
+          this.contactData = res;
+        }
+      });
+
+  }
 }
