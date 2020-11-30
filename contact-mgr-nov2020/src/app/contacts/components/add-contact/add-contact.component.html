@@ -25,7 +25,7 @@
         <label for="staticPhone" class="col-sm-2 col-form-label">Phone</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" placeholder="Enter Phone" 
-          formControlName='phone' 
+          formControlName='phone'
           [ngClass]="{ 'is-invalid': addContactForm.get('phone').touched && addContactForm.get('phone').invalid }" />
           <div class="invalid-feedback">
             <div>Phone is required</div>

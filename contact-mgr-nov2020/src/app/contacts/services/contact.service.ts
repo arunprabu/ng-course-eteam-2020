@@ -16,15 +16,19 @@ export class ContactService {
   createContact(contactFormData: any): any { // 1. get the data from the comp ts
     console.log(contactFormData);
 
-    // 2. send the data to the rest api backend
-    // 2.1. what's the rest api url? - http://jsonplaceholder.typicode.com/users
-    // 2.2. what's the http method? - POST
-    // 2.3. What's the tool we have to use to sent the above data? - HttpClient
     return this.http.post(this.REST_API_URL, contactFormData)
-      .pipe(map((res: any) => { // 3. get the resp from the rest api backend
+      .toPromise()
+      .then((res) => {
         console.log(res);
-        return res;     // 4. send it back to the comp ts
-      }));
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      })
+      .finally(() => {
+        console.log('It is over!');
+      });
   }
 
   // Listing all contacts
@@ -43,7 +47,7 @@ export class ContactService {
   }
 
   // Contact Details
-  getContactById( id ): any {
+  getContactById(id): any {
     return this.http.get(this.REST_API_URL + '/' + id)
       .pipe(map((res: any) => {
         console.log(res);
@@ -52,7 +56,7 @@ export class ContactService {
   }
 
   // Update Contact
-  updateContact( contactData: any ): any {
+  updateContact(contactData: any): any {
     const URL = this.REST_API_URL + '/' + contactData.id;
     return this.http.put(URL, contactData)
       .pipe(map((res: any) => {

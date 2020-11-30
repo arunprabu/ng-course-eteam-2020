@@ -22,23 +22,19 @@ export class AddContactComponent implements OnInit {
     // Step 1: continues...
     this.addContactForm = new FormGroup({
       // Step 2: Create HTML input equivalents in TS
-      name: new FormControl('', Validators.required), // Step 5: work on validations
-      phone: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email])
+      name: new FormControl('a', Validators.required), // Step 5: work on validations
+      phone: new FormControl('32423', Validators.required),
+      email: new FormControl('a@b.com', [Validators.required, Validators.email])
     });
   }
 
-  addContactHandler(): void {
+  async addContactHandler() {
     console.log(this.addContactForm.value);
 
     // 2. send the above data to the service
-    this.contactService.createContact(this.addContactForm.value)
-      .subscribe((res: any) => { // 3. get resp from the service
-        console.log(res);
-        if (res && res.id) {
-          this.isSaved = true;
-        }
-      });
+    const status  = await this.contactService.createContact(this.addContactForm.value);
+    console.log(status);
+
   }
 
 }
