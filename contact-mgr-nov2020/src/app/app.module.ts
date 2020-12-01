@@ -18,6 +18,7 @@ import { ColorizerDirective } from './concepts/directives/colorizer.directive';
 import { DemoIfDirective } from './concepts/directives/demo-if.directive';
 import { AddContactComponent } from './contacts/components/add-contact/add-contact.component';
 import { ContactDetailsComponent } from './contacts/components/contact-details/contact-details.component';
+import { ProductsModule } from './products/products.module';
 
 // Main Switching Box
 @NgModule({
@@ -42,7 +43,8 @@ import { ContactDetailsComponent } from './contacts/components/contact-details/c
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [ AppComponent ] // AppModule should bootstrap AppComponent
