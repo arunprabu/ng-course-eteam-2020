@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartDataService } from '../services/cart-data.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  cartItemCount: number;
+
+  constructor(private router: Router, private cartDatService: CartDataService) { }
 
   ngOnInit(): void {
+    this.cartDatService.latestCartItems.subscribe((cartItems: any[]) => {
+      console.log(cartItems);
+      if (cartItems && cartItems.length > 0) {
+        this.cartItemCount = cartItems.length;
+      }else {
+        this.cartItemCount = 0;
+      }
+    });
   }
 
   gotoCartHandler(): void {
