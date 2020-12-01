@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Contact } from '../../models/contact';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -10,8 +11,8 @@ import { ContactService } from '../../services/contact.service';
 })
 export class ContactDetailsComponent implements OnInit {
 
-  contactData: any;
-  duplicateContactData: any;
+  contactData: Contact;
+  duplicateContactData: Contact;
   isUpdated: boolean;
 
   constructor(private contactService: ContactService, private route: ActivatedRoute) {
@@ -23,7 +24,7 @@ export class ContactDetailsComponent implements OnInit {
     // todo: Read URL Parameter in Angular
     const contactId = this.route.snapshot.paramMap.get('id');
     this.contactService.getContactById(contactId)
-      .subscribe((res: any) => {
+      .subscribe((res: Contact) => {
         console.log(res);
         this.contactData = res;
       });
@@ -37,7 +38,7 @@ export class ContactDetailsComponent implements OnInit {
     console.log(this.duplicateContactData);
 
     this.contactService.updateContact(this.duplicateContactData)
-      .subscribe((res: any) => {
+      .subscribe((res: Contact) => {
         console.log(res);
         if (res && res.id) {
           this.isUpdated = true;

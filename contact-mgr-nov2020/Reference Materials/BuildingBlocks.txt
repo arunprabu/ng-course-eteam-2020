@@ -9,5 +9,13 @@ Building Blocks
   Guards
   Pipes 
   Modules
-
+  Unit Testing
 ---
+
+Concepts
+--
+  Databinding
+  Routing 
+  Rx/Observables
+  Promise 
+  Any to Any Comp communication 

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Contact } from '../models/contact';
 import { ContactService } from '../services/contact.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ContactService } from '../services/contact.service';
 })
 export class ContactsComponent implements OnInit, OnDestroy {
 
-  contactList: any[];
+  contactList: Contact[];
   contactsSubscription: Subscription;
 
   constructor(private contactService: ContactService) { // 1. connect to the service using dep injection
@@ -23,7 +24,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
     // 2. send the req to the service
     this.contactsSubscription = this.contactService.getContacts()
-      .subscribe((res: any[]) => { // 3. get the resp from the service
+      .subscribe((res: Contact[]) => { // 3. get the resp from the service
         console.log(res);
         this.contactList = res;
       });

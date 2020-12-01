@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Contact } from '../models/contact';
+import { Observable } from 'rxjs';
 
 // Decorator
 @Injectable({
@@ -13,33 +15,36 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   // Create
-  createContact(contactFormData: any): any { // 1. get the data from the comp ts
+  createContact(contactFormData: Contact): Promise<Contact> | Promise<any> { // 1. get the data from the comp ts
     console.log(contactFormData);
 
-    return this.http.post(this.REST_API_URL, contactFormData)
-      .toPromise()
-      .then((res) => {
-        console.log(res);
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-        return err;
-      })
-      .finally(() => {
-        console.log('It is over!');
-      });
+    const createContactPromise = new Promise( (resolve, reject) => {
+      this.http.post(this.REST_API_URL, contactFormData)
+        .toPromise()
+        .then((res: Contact) => {
+          console.log(res);
+          resolve(res);
+        })
+        .catch((err: any) => {
+          console.log(err);
+          reject(err);
+        })
+        .finally(() => {
+          console.log('It is over!');
+        });
+    });
+    return createContactPromise as Promise<Contact> | Promise<any>;
   }
 
   // Listing all contacts
-  getContacts(): any { // 1. get the req from comp.ts
+  getContacts(): Observable<Contact[]> { // 1. get the req from comp.ts
     console.log('Inside service');
     // 2. send the req to the rest api
     // 2.1. what's the rest api url? - http://jsonplaceholder.typicode.com/users
     // 2.2. what's the http method? - GET
     // 2.3. What's the tool we have to use to sent the above data? - HttpClient
     return this.http.get(this.REST_API_URL)
-      .pipe(map((res: any[]) => { // 3. get the resp from the rest api backend
+      .pipe(map((res: Contact[]) => { // 3. get the resp from the rest api backend
         console.log(res);
         // filter, convert, merge, sort,
         return res;     // 4. send it back to the comp ts
@@ -47,23 +52,22 @@ export class ContactService {
   }
 
   // Contact Details
-  getContactById(id): any {
+  getContactById(id: string): Observable<Contact> {
     return this.http.get(this.REST_API_URL + '/' + id)
-      .pipe(map((res: any) => {
+      .pipe(map((res: Contact) => {
         console.log(res);
         return res;
       }));
   }
 
   // Update Contact
-  updateContact(contactData: any): any {
+  updateContact(contactData: Contact): Observable<Contact> {
     const URL = this.REST_API_URL + '/' + contactData.id;
     return this.http.put(URL, contactData)
-      .pipe(map((res: any) => {
+      .pipe(map((res: Contact) => {
         console.log(res);
         return res;
       }));
-
   }
 
   // Delete Contact
