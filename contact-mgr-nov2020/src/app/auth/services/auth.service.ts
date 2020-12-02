@@ -20,7 +20,29 @@ export class AuthService {
       }));
   }
 
-  login() {
-    
+  login(formData: any): Observable<any> {
+    console.log(formData);
+    return this.http.post('https://reqres.in/api/login', formData)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
+
+  saveToken(token: string): void {
+    sessionStorage.setItem('token', token);
+  }
+
+  isAuth(): boolean {
+    if (sessionStorage.getItem('token')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // todo: complete the logout from header.comp.ts
+  logout(): void {
+    sessionStorage.removeItem('token');
   }
 }

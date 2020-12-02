@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { ContactDetailsComponent } from './contacts/components/contact-details/c
 import { ProductsModule } from './products/products.module';
 import { LoginComponent } from './auth/components/login/login.component';
 import { SignupComponent } from './auth/components/signup/signup.component';
+import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
 
 // Main Switching Box
 @NgModule({
@@ -50,7 +51,9 @@ import { SignupComponent } from './auth/components/signup/signup.component';
     HttpClientModule,
     ProductsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [ AppComponent ] // AppModule should bootstrap AppComponent
 })
 export class AppModule { }
