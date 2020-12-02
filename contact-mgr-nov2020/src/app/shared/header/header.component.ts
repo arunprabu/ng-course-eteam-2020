@@ -9,7 +9,7 @@ import { CartDataService } from '../services/cart-data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  cartItemCount: number;
+  cartItemCount = 0;
 
   constructor(private router: Router, private cartDatService: CartDataService) { }
 
@@ -18,8 +18,6 @@ export class HeaderComponent implements OnInit {
       console.log(cartItems);
       if (cartItems && cartItems.length > 0) {
         this.cartItemCount = cartItems.length;
-      }else {
-        this.cartItemCount = 0;
       }
     });
   }

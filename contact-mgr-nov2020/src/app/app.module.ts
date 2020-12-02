@@ -19,6 +19,8 @@ import { DemoIfDirective } from './concepts/directives/demo-if.directive';
 import { AddContactComponent } from './contacts/components/add-contact/add-contact.component';
 import { ContactDetailsComponent } from './contacts/components/contact-details/contact-details.component';
 import { ProductsModule } from './products/products.module';
+import { LoginComponent } from './auth/components/login/login.component';
+import { SignupComponent } from './auth/components/signup/signup.component';
 
 // Main Switching Box
 @NgModule({
@@ -36,7 +38,9 @@ import { ProductsModule } from './products/products.module';
     ColorizerDirective,
     DemoIfDirective,
     AddContactComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

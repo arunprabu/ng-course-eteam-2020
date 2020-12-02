@@ -29,7 +29,7 @@ export class CartDataService {
 
   }
 
-  updateCart(product): void {
+  updateCart(product: any): void {
     console.log(product);
 
     // send the above product to the backend to get it saved within cart.
@@ -43,9 +43,6 @@ export class CartDataService {
       console.log(newArr);
       this.cartItemsList.next(newArr);
     });
-
-    // if error
-    // return the error from here so as to display toast message from the comp
   }
 
 }

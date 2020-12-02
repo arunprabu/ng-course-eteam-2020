@@ -17,6 +17,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes) // registering routes
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class ProductsRoutingModule { }
