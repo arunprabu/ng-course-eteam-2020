@@ -7,9 +7,13 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 // Setting up Feature Routing
 const routes: Routes = [
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/1', component: ProductDetailsComponent },
-  { path: 'products/cart', component: ShoppingCartComponent }
+  {
+    path: 'products', children: [
+      { path: '', component: ProductListComponent },
+      { path: 'cart', component: ShoppingCartComponent },
+      { path: ':id', component: ProductDetailsComponent } // id is URL param
+    ]
+  }
 ];
 
 @NgModule({

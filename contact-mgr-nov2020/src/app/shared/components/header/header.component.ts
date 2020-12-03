@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartDataService } from '../services/cart-data.service';
+import { CartDataService } from '../../services/cart-data.service';
 
 @Component({
   selector: 'app-header',

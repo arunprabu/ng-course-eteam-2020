@@ -5,9 +5,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { MenuComponent } from './shared/menu/menu.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/components/concepts.component';
 import { ContactsComponent } from './contacts/components/contacts.component';
@@ -22,6 +22,8 @@ import { ProductsModule } from './products/products.module';
 import { LoginComponent } from './auth/components/login/login.component';
 import { SignupComponent } from './auth/components/signup/signup.component';
 import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 
 // Main Switching Box
 @NgModule({
@@ -41,15 +43,17 @@ import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
     AddContactComponent,
     ContactDetailsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PageNotFoundComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
+    ProductsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    ProductsModule
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

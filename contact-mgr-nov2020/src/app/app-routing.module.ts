@@ -8,6 +8,7 @@ import { AddContactComponent } from './contacts/components/add-contact/add-conta
 import { ContactDetailsComponent } from './contacts/components/contact-details/contact-details.component';
 import { ContactsComponent } from './contacts/components/contacts.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 // configure routes
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'contacts/:id', component: ContactDetailsComponent }, // id is the URL Param
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

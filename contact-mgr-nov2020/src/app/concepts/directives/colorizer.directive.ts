@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   selector: '[appColorizer]'
 })
 export class ColorizerDirective {
-  
+
   constructor( private elRef: ElementRef, private renderer: Renderer2 ) { // dependency injection
     console.log(`Inside Constructor of ColorizerDirective`);
     console.log(this.elRef.nativeElement);

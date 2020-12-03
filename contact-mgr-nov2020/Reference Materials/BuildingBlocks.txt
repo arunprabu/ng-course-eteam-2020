@@ -6,12 +6,9 @@ Building Blocks
   Interfaces
   Classes
   Models 
-
   Guards
   Pipes 
-  
   Modules
-  Unit Testing
 ---
 
 Concepts
@@ -21,3 +18,6 @@ Concepts
   Rx/Observables
   Promise 
   Any to Any Comp communication 
+
+
+Unit Testing
